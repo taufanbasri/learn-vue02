@@ -2,12 +2,12 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Getting Event Data from Event Object</title>
+        <title>Passing argument to event</title>
         <script src="vue.js"></script>
     </head>
     <body>
         <div id="app">
-            <button @click="increase">Click Me</button>
+            <button @click="increase(2)">Click Me</button>
             <p>{{ counter }}</p>
             <p @mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }}</p>
         </div>
@@ -21,8 +21,8 @@
                     y: 0
                 },
                 methods: {
-                  increase() {
-                      this.counter++;
+                  increase(step) {
+                      this.counter += step;
                   },
                   updateCoordinates(event) {
                       this.x = event.clientX;
