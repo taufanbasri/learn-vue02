@@ -2,24 +2,31 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Listening To Events</title>
+        <title>Getting Event Data from Event Object</title>
         <script src="vue.js"></script>
     </head>
     <body>
         <div id="app">
             <button @click="increase">Click Me</button>
             <p>{{ counter }}</p>
+            <p @mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }}</p>
         </div>
 
         <script>
             new Vue({
                 el: '#app',
                 data: {
-                    counter: 0
+                    counter: 0,
+                    x: 0,
+                    y: 0
                 },
                 methods: {
                   increase() {
                       this.counter++;
+                  },
+                  updateCoordinates(event) {
+                      this.x = event.clientX;
+                      this.y = event.clientY;
                   }
                 }
             });
