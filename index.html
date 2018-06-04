@@ -2,16 +2,19 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Passing argument to event</title>
-        <script src="vue.js"></script>
+        <title>Event modifier</title>
     </head>
     <body>
         <div id="app">
-            <button @click="increase(2)">Click Me</button>
+            <button @click="increase(2, $event)">Click Me</button>
             <p>{{ counter }}</p>
-            <p @mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }}</p>
+            <p @mousemove="updateCoordinates">
+                Coordinates: {{ x }} / {{ y }}
+                - <span @mousemove.stop="">DEAD SPOT</span>
+            </p>
         </div>
 
+        <script src="vue.js"></script>
         <script>
             new Vue({
                 el: '#app',
@@ -21,7 +24,7 @@
                     y: 0
                 },
                 methods: {
-                  increase(step) {
+                  increase(step, event) {
                       this.counter += step;
                   },
                   updateCoordinates(event) {
