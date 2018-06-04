@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Event modifier</title>
+        <title>Keyboard Event</title>
     </head>
     <body>
         <div id="app">
@@ -12,6 +12,8 @@
                 Coordinates: {{ x }} / {{ y }}
                 - <span @mousemove.stop="">DEAD SPOT</span>
             </p>
+
+            <input type="text" @keyup.enter="alertMe">
         </div>
 
         <script src="vue.js"></script>
@@ -30,6 +32,9 @@
                   updateCoordinates(event) {
                       this.x = event.clientX;
                       this.y = event.clientY;
+                  },
+                  alertMe() {
+                      alert('Alert!');
                   }
                 }
             });
