@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Listening To Events</title>
+        <script src="vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <button @click="increase">Click Me</button>
+            <p>{{ counter }}</p>
+        </div>
+
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    counter: 0
+                },
+                methods: {
+                  increase() {
+                      this.counter++;
+                  }
+                }
+            });
+        </script>
+    </body>
+</html>
